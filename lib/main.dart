@@ -21,6 +21,7 @@ class AuthApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => AuthBloc(),
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.routers,
       ),
     );

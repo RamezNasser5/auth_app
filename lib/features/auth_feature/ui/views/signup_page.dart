@@ -42,7 +42,9 @@ class SignUpPage extends StatelessWidget {
                 height: 30,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 350.0),
+                padding: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.85,
+                ),
                 child: IconButton(
                   onPressed: () {
                     GoRouter.of(context).go(AppRouter.initialRoute);
@@ -74,10 +76,7 @@ class SignUpPage extends StatelessWidget {
                 hintText: 'Password',
               ),
               const SizedBox(
-                height: 40,
-              ),
-              const SizedBox(
-                height: 100,
+                height: 140,
               ),
               CustomLoginButton(
                 onTap: () {

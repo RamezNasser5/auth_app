@@ -1,4 +1,6 @@
+import 'package:auth_app/core/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CustomLoginText extends StatelessWidget {
   const CustomLoginText({
@@ -18,25 +20,16 @@ class CustomLoginText extends StatelessWidget {
         children: [
           Text(
             text1,
-            style: const TextStyle(
-              fontSize: 32,
-              color: Color(0xff3A2F2F),
-              fontWeight: FontWeight.w600,
-              fontFamily: 'Poppins',
-            ),
+            style: AppStyle.poppinsStyle32,
           ),
           SizedBox(
             width: 320,
             child: Padding(
-              padding: const EdgeInsets.only(left: 30.0),
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.06),
               child: Text(
                 text2,
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: Color(0xff704F47),
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Poppins',
-                ),
+                style: AppStyle.poppinsStyle13,
               ),
             ),
           ),

@@ -1,3 +1,4 @@
+import 'package:auth_app/core/app_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomLoginButton extends StatelessWidget {
@@ -22,8 +23,8 @@ class CustomLoginButton extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         MaterialButton(
-          height: 50,
-          minWidth: 350,
+          height: MediaQuery.of(context).size.height * 0.06,
+          minWidth: MediaQuery.of(context).size.width * 0.8,
           onPressed: onPressed,
           color: const Color(0xff3A2F2F),
           shape:
@@ -49,23 +50,13 @@ class CustomLoginButton extends StatelessWidget {
             children: [
               const Text(
                 'Already have an account?',
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Color(0xff704F47),
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'Poppins',
-                ),
+                style: AppStyle.poppinsStyle13,
               ),
               GestureDetector(
                 onTap: onTap,
                 child: Text(
                   text,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: Color(0xff704F47),
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Poppins',
-                  ),
+                  style: AppStyle.poppinsStyle13,
                 ),
               ),
             ],

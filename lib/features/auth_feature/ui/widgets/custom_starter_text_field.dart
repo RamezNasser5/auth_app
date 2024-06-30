@@ -13,7 +13,9 @@ class CustomStarterTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width * 0.05,
+      ),
       child: TextFormField(
         onChanged: onFieldSubmitted,
         validator: (value) {
