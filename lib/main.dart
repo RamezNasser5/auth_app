@@ -1,5 +1,5 @@
+import 'package:auth_app/core/app_router.dart';
 import 'package:auth_app/features/auth_feature/logic/auth_bloc/auth_bloc.dart';
-import 'package:auth_app/features/auth_feature/presentation/views/login_page.dart';
 import 'package:auth_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +18,10 @@ class AuthApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: BlocProvider(
-          create: (context) => AuthBloc(),
-          child: LoginPage(),
-        ),
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: MaterialApp.router(
+        routerConfig: AppRouter.routers,
       ),
     );
   }

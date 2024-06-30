@@ -1,15 +1,15 @@
+import 'package:auth_app/core/app_router.dart';
 import 'package:auth_app/features/auth_feature/logic/auth_bloc/auth_bloc.dart';
-import 'package:auth_app/features/auth_feature/presentation/views/signup_page.dart';
-import 'package:auth_app/features/auth_feature/presentation/widgets/custom_login_button.dart';
-import 'package:auth_app/features/auth_feature/presentation/widgets/custom_login_text.dart';
-import 'package:auth_app/features/auth_feature/presentation/widgets/custom_starter_text_field.dart';
-import 'package:auth_app/features/home_feature/presentation/views/home_view.dart';
+import 'package:auth_app/features/auth_feature/ui/widgets/custom_login_button.dart';
+import 'package:auth_app/features/auth_feature/ui/widgets/custom_login_text.dart';
+import 'package:auth_app/features/auth_feature/ui/widgets/custom_starter_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 // ignore: must_be_immutable
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPageBody extends StatelessWidget {
+  LoginPageBody({super.key});
 
   String? email;
   String? password;
@@ -23,9 +23,7 @@ class LoginPage extends StatelessWidget {
           isLoading = true;
         } else if (state is LoginSuccess) {
           isLoading = false;
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return const HomeView();
-          }));
+          GoRouter.of(context).go(AppRouter.homeRoute);
         } else if (state is LoginFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -47,7 +45,7 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 350.0),
                 child: IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    GoRouter.of(context).go(AppRouter.registerRoute);
                   },
                   icon: const Icon(Icons.arrow_back_ios),
                 ),
@@ -83,14 +81,7 @@ class LoginPage extends StatelessWidget {
               ),
               CustomLoginButton(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) {
-                      return BlocProvider(
-                        create: (context) => AuthBloc(),
-                        child: SignUpPage(),
-                      );
-                    }),
-                  );
+                  GoRouter.of(context).go(AppRouter.registerRoute);
                 },
                 textFieldText: 'Sign In',
                 text: 'Sign Up here.',
