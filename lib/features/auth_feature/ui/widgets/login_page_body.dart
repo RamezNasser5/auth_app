@@ -1,4 +1,5 @@
 import 'package:auth_app/core/app_router.dart';
+import 'package:auth_app/core/consts.dart';
 import 'package:auth_app/features/auth_feature/logic/auth_bloc/auth_bloc.dart';
 import 'package:auth_app/features/auth_feature/ui/widgets/custom_login_button.dart';
 import 'package:auth_app/features/auth_feature/ui/widgets/custom_login_text.dart';
@@ -35,7 +36,7 @@ class LoginPageBody extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: const Color(0xffF5F5F5),
+          backgroundColor: backgroundColor,
           body: ListView(
             children: [
               const SizedBox(

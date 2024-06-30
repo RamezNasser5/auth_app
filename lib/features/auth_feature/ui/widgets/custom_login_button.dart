@@ -1,4 +1,5 @@
 import 'package:auth_app/core/app_style.dart';
+import 'package:auth_app/core/consts.dart';
 import 'package:flutter/material.dart';
 
 class CustomLoginButton extends StatelessWidget {
@@ -26,7 +27,7 @@ class CustomLoginButton extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.06,
           minWidth: MediaQuery.of(context).size.width * 0.8,
           onPressed: onPressed,
-          color: const Color(0xff3A2F2F),
+          color: buttonColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: isLoading
